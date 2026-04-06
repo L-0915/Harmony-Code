@@ -1,0 +1,6 @@
+#!/usr/bin/env node
+// Harmony Code launcher
+// Uses the patched cli.js with Huawei branding
+const path = require('path');
+const cliPath = path.join(process.env.USERPROFILE || process.env.HOME, 'harmony-code', 'cli.js');
+require(cliPath);

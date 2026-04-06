@@ -1,0 +1,16 @@
+{
+  "name": "harmony-code",
+  "version": "2.1.92",
+  "description": "Harmony Code - 遥遥领先，中华有为",
+  "bin": {
+    "harmony": "./harmony"
+  },
+  "scripts": {
+    "setup": "node setup.js",
+    "extract": "node scripts/extract.js",
+    "patch": "node scripts/patch.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/claude-code": ">=2.1.0"
+  }
+}
