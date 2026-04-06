@@ -52,10 +52,15 @@ replaceAll("What's new", '\u6700\u65b0\u52a8\u6001', 'feeds title');
 replaceAll('Check the Claude Code changelog for updates', '\u67e5\u770b Harmony Code \u66f4\u65b0\u65e5\u5fd7', 'feeds footer');
 replaceAll('/release-notes for more', '/release-notes \u67e5\u770b\u66f4\u591a', 'feeds link');
 
-// ── Logo ──
+// Right panel text
+replaceAll('return{title:"Tips for getting started"', 'return{title:"\u5f00\u59cb\u5c0f\u5999\u62db"', 'Tips \u2192 \u5f00\u59cb\u5c0f\u5999\u62db');
+replaceAll('return{title:"Recent activity"', 'return{title:"\u6700\u8fd1\u6d3b\u52a8"', 'Recent \u2192 \u6700\u8fd1\u6d3b\u52a8');
+replaceAll('Opus now defaults to 1M context \u00b7 5x more room, same pricing', 'Harmony now defaults to 1M context \u00b7 5x more room, same pricing', 'Opus \u2192 Harmony');
+
+// ── Logo (8 petals, 13 rows) ──
 console.log('\n\u2728 Patching logo...');
 
-const COMPACT = [
+const LOGO = [
   '          101      101',
   '         10101     10101',
   '         10101    101010',
@@ -67,12 +72,16 @@ const COMPACT = [
   '10101   1010  10  10 1010  10101',
   '  1010101   10       1  10101010',
   '   10101010           101010101',
+  '',
+  '   10101010           10101010',
+  '    101010             101010',
 ];
 
-const maxW = Math.max(...COMPACT.map(r => r.length));
-const paddedRows = COMPACT.map(r => r.padEnd(maxW));
+const maxW = Math.max(...LOGO.map(r => r.length));
+const paddedRows = LOGO.map(r => r.padEnd(maxW));
 
 function rowToJS(row) {
+  if (!row) return 'pz.createElement(T,null,"")';
   const parts = [];
   let i = 0;
   while (i < row.length) {
@@ -119,7 +128,7 @@ replaceFn('XyY', 'q', logoBody);
 
 // ── Height ──
 console.log('\n\u2728 Patching layout constraints...');
-replaceAll('justifyContent:"space-between",alignItems:"center",minHeight:9', 'justifyContent:"space-between",alignItems:"center",minHeight:13', 'minHeight 9\u219213');
+replaceAll('justifyContent:"space-between",alignItems:"center",minHeight:9', 'justifyContent:"space-between",alignItems:"center",minHeight:15', 'minHeight 9\u219215');
 replaceAll('VyY=3;', 'VyY=11;', 'mascot height 3\u219211');
 
 // ── Write ──
@@ -128,12 +137,6 @@ console.log(`\n\u2705 Done! ${changes} patches applied.`);
 console.log(`   Output: ${(c.length / 1024 / 1024).toFixed(1)}MB`);
 
 // Verify
-if (c.includes('function wM6(q){let A=K6(1)')) {
-  console.log('   \u2714 wM6 logo OK');
-}
-if (c.includes('function XyY(q){let A=K6(1)')) {
-  console.log('   \u2714 XyY logo OK');
-}
-if (c.includes('rgb(199,0,11)')) {
-  console.log('   \u2714 Huawei red OK');
-}
+if (c.includes('function wM6(q){let A=K6(1)')) console.log('   \u2714 wM6 logo OK');
+if (c.includes('function XyY(q){let A=K6(1)')) console.log('   \u2714 XyY logo OK');
+if (c.includes('rgb(199,0,11)')) console.log('   \u2714 Huawei red OK');
