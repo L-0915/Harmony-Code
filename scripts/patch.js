@@ -54,8 +54,10 @@ replaceAll('/release-notes for more', '/release-notes \u67e5\u770b\u66f4\u591a',
 
 // Right panel text
 replaceAll('return{title:"Tips for getting started"', 'return{title:"\u5f00\u59cb\u5c0f\u5999\u62db"', 'Tips \u2192 \u5f00\u59cb\u5c0f\u5999\u62db');
-replaceAll('return{title:"Recent activity"', 'return{title:"\u6700\u8fd1\u6d3b\u52a8"', 'Recent \u2192 \u6700\u8fd1\u6d3b\u52a8');
+replaceAll('return{title:"Recent activity"', 'return{title:"\u6700\u8fd1\u6d3b\u52a9",lines:[{text:"\u9e3f\u8499\u5b87\u5b99\u5927\u6a21\u578b\u9a7e\u5230\uff0c\u7edf\u7edf\u95ea\u5f00\uff01"},...K],', 'Recent activity + subtitle');
 replaceAll('Opus now defaults to 1M context \u00b7 5x more room, same pricing', 'Harmony now defaults to 1M context \u00b7 5x more room, same pricing', 'Opus \u2192 Harmony');
+replaceAll('b7("inactive",o)(`v${b}`)', 'b7("inactive",o)("v99.99.99")', 'version display');
+replaceAll('\u56fd\u4ea7\u81ea\u4e3b\u7814\u53d1 \u00b7 \u9e3f\u8499\u751f\u6001', '\u56fd\u4ea7\u81ea\u4e3b\u7814\u53d1 \u00b7 \u9e3f\u8499\u751f\u6001 \u00b7 \u9065\u9065\u9886\u5148', 'billing + 遥遥领先');
 
 // ── Logo (8 petals, 13 rows) ──
 console.log('\n\u2728 Patching logo...');
